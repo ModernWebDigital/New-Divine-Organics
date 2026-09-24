@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Lawn Care Service | Lansing, East Lansing & Okemos Lawn Care</title>
+<meta name="description" content="Divine Lawn Care Service — locally owned, MSU-alumni-run lawn care in Lansing, East Lansing, and Okemos, MI. Mowing, edging, cleanups, tree & shrub care. Weekly mows from $25.">
+<link rel="icon" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/c77882b5-bc2d-46dc-9dc9-51d86ee095be.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --ink:oklch(16% 0.025 150);
+  --paper:oklch(97% 0.008 150);
+  --paper-alt:oklch(93% 0.022 148);
+  --green-900:oklch(22% 0.075 152);
+  --green-800:oklch(28% 0.085 150);
+  --green-700:oklch(36% 0.105 148);
+  --green-600:oklch(45% 0.12 146);
+  --green-500:oklch(55% 0.13 144);
+  --gold:oklch(80% 0.152 87);
+  --gold-deep:oklch(68% 0.165 78);
+  --white:oklch(100% 0 0);
+  --muted:oklch(40% 0.03 150);
+  --muted-on-dark:oklch(84% 0.035 145);
+  --line:oklch(60% 0.03 150 / 18%);
+  --line-dark:oklch(90% 0.02 145 / 16%);
+  --shadow-sm:0 2px 12px oklch(20% 0.05 150 / 0.10);
+  --shadow-md:0 18px 44px oklch(18% 0.06 150 / 0.20);
+  --radius-sm:8px;
+  --radius-md:16px;
+  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+  --z-menu:150;
+  --z-nav:200;
+  --content-max:1220px;
+}
+
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+
+body{
+  font-family:'Work Sans',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{
+  font-family:'Bebas Neue',sans-serif;
+  line-height:0.95;
+  letter-spacing:0.01em;
+  font-weight:400;
+  text-wrap:balance;
+}
+p{ text-wrap:pretty; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+img{ max-width:100%; display:block; }
+button{ font:inherit; border:none; background:none; cursor:pointer; }
+
+.container{ width:100%; max-width:var(--content-max); margin:0 auto; padding:0 clamp(20px,4vw,40px); }
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:16px 30px; border-radius:999px;
+  font-family:'Work Sans',sans-serif; font-weight:700; font-size:15px;
+  letter-spacing:0.01em;
+  transition:transform .35s var(--ease-out-expo), box-shadow .35s var(--ease-out-expo), background-color .25s ease, color .25s ease;
+  border:2px solid transparent; cursor:pointer;
+}
+.btn-gold{ background:var(--gold); color:var(--ink); }
+.btn-gold:hover{ background:var(--gold-deep); transform:translateY(-3px); box-shadow:var(--shadow-md); }
+.btn-outline-light{ background:transparent; color:var(--white); border-color:oklch(100% 0 0 / 0.55); }
+.btn-outline-light:hover{ background:oklch(100% 0 0 / 0.12); border-color:oklch(100% 0 0 / 0.9); transform:translateY(-3px); }
+.btn-line{ background:var(--green-900); color:var(--white); }
+.btn-line:hover{ background:var(--green-800); transform:translateY(-3px); box-shadow:var(--shadow-md); }
+@media (prefers-reduced-motion:reduce){ .btn{ transition:background-color .15s ease, color .15s ease; } .btn:hover{ transform:none; } }
+
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease-out-expo), transform .7s var(--ease-out-expo); }
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+
+.section{ padding:clamp(64px,10vw,120px) 0; }
+.section-title{
+  display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
+  flex-wrap:wrap;
+  margin-bottom:clamp(36px,5vw,64px);
+  padding-bottom:22px;
+  border-bottom:1px solid var(--line);
+}
+.section-title h2{ font-size:clamp(40px,6vw,72px); color:var(--green-900); }
+.section-title .section-kicker{ font-size:15px; color:var(--muted); max-width:34ch; padding-bottom:8px; }
+.section-title.on-dark{ border-bottom-color:var(--line-dark); }
+.section-title.on-dark h2{ color:var(--white); }
+.section-title.on-dark .section-kicker{ color:var(--muted-on-dark); }
+
+.mow-divider{
+  height:56px;
+  background-image:repeating-linear-gradient(
+    118deg,
+    var(--green-700) 0px, var(--green-700) 46px,
+    var(--green-600) 46px, var(--green-600) 92px
+  );
+}
+
+.nav-toggle-input{ position:absolute; opacity:0; pointer-events:none; }
+
+header{
+  position:fixed; top:0; left:0; width:100%; z-index:var(--z-nav);
+  background:oklch(22% 0.075 152 / 0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid oklch(100% 0 0 / 0.08);
+  transition:box-shadow .3s var(--ease-out-expo);
+}
+header.is-scrolled{ box-shadow:0 8px 30px oklch(10% 0.04 150 / 0.35); }
+nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px clamp(20px,4vw,40px);
+  max-width:var(--content-max); margin:0 auto;
+  transform-origin:top center;
+  transition:transform .3s var(--ease-out-expo);
+}
+header.is-scrolled nav{ transform:scale(0.92); }
+.logo-wrap{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
+.logo-icon{ width:46px; height:46px; flex-shrink:0; border-radius:50%; }
+.logo-word{ font-family:'Bebas Neue',sans-serif; color:var(--white); font-size:22px; letter-spacing:0.02em; line-height:1; white-space:nowrap; }
+.logo-word span{ display:block; font-family:'Work Sans',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.16em; color:var(--muted-on-dark); text-transform:uppercase; margin-top:3px; white-space:nowrap; }
+@media (max-width:1180px){ .logo-word span{ display:none; } }
+
+.nav-links{ display:flex; align-items:center; gap:34px; flex-shrink:0; }
+.nav-links a{ font-weight:600; font-size:14.5px; color:var(--white); position:relative; padding:4px 0; }
+.nav-links a::after{
+  content:''; position:absolute; left:0; right:100%; bottom:0; height:2px;
+  background:var(--gold); transition:right .3s var(--ease-out-expo);
+}
+.nav-links a:hover::after{ right:0; }
+.nav-actions{ display:flex; align-items:center; gap:18px; }
+.nav-phone{ font-weight:700; color:var(--gold); font-size:14.5px; display:flex; align-items:center; gap:7px; white-space:nowrap; }
+
+.nav-toggle-label{
+  display:none; width:34px; height:26px; position:relative; flex-direction:column; justify-content:space-between; cursor:pointer;
+}
+.nav-toggle-label span{ display:block; height:2px; width:100%; background:var(--white); transition:transform .3s var(--ease-out-expo), opacity .2s ease; }
+#nav-toggle:checked ~ header .nav-toggle-label span:nth-child(1){ transform:translateY(11px) rotate(45deg); }
+#nav-toggle:checked ~ header .nav-toggle-label span:nth-child(2){ opacity:0; }
+#nav-toggle:checked ~ header .nav-toggle-label span:nth-child(3){ transform:translateY(-11px) rotate(-45deg); }
+
+.mobile-panel{
+  position:fixed; top:0; left:0; width:100%; height:100dvh; z-index:var(--z-menu);
+  background:var(--green-900); display:flex; flex-direction:column;
+  padding:110px 28px 40px; gap:6px;
+  transform:translateX(100%); transition:transform .4s var(--ease-out-expo);
+}
+#nav-toggle:checked ~ .mobile-panel{ transform:translateX(0); }
+.mobile-panel a{ display:block; color:var(--white); font-family:'Bebas Neue',sans-serif; font-size:34px; padding:14px 0; border-bottom:1px solid var(--line-dark); }
+.mobile-panel .btn{ margin-top:24px; align-self:flex-start; border-bottom:none; }
+
+@media (max-width:960px){
+  .nav-links, .nav-actions .nav-phone{ display:none; }
+  .nav-toggle-label{ display:flex; }
+}
+
+.hero{
+  position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; color:var(--white);
+}
+.hero-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 30%; z-index:0; }
+.hero::before{
+  content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(185deg, oklch(20% 0.07 152 / 0.55) 0%, oklch(16% 0.06 152 / 0.55) 40%, oklch(14% 0.05 152 / 0.94) 100%);
+}
+.hero-content{ position:relative; z-index:2; max-width:var(--content-max); margin:0 auto; width:100%; padding:180px clamp(20px,4vw,40px) 84px; }
+.hero-badge{
+  display:inline-flex; align-items:center; gap:9px;
+  background:oklch(100% 0 0 / 0.1); border:1px solid oklch(100% 0 0 / 0.32);
+  padding:9px 18px; border-radius:999px; font-size:13px; font-weight:600;
+  letter-spacing:0.08em; text-transform:uppercase; margin-bottom:28px;
+}
+.hero h1{
+  font-size:clamp(3rem,8vw,5.6rem);
+  max-width:16ch;
+  color:var(--white);
+  text-shadow:0 6px 30px oklch(10% 0.05 150 / 0.4);
+  margin-bottom:22px;
+}
+.hero h1 em{ font-style:normal; color:var(--gold); }
+.hero p{ font-size:18px; color:oklch(96% 0.01 150 / 0.92); margin-bottom:38px; max-width:52ch; }
+.hero-ctas{ display:flex; flex-wrap:wrap; gap:16px; }
+.scroll-cue{
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  color:oklch(100% 0 0 / 0.7); font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+}
+.scroll-cue svg{ animation:cue-bob 2.2s var(--ease-out-expo) infinite; }
+@keyframes cue-bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(8px); } }
+@media (prefers-reduced-motion:reduce){ .scroll-cue svg{ animation:none; } }
+
+.services{ background:var(--paper); }
+.stripe-row{
+  display:grid; grid-template-columns:64px 1fr auto; align-items:center; gap:28px;
+  padding:30px clamp(20px,4vw,40px);
+  border-bottom:1px solid var(--line);
+  transition:background-color .3s ease, transform .3s var(--ease-out-expo);
+}
+.stripe-row:nth-child(even){ background:var(--paper-alt); }
+.stripe-row:hover{ transform:translateX(12px); }
+.stripe-row:first-child{ border-top:1px solid var(--line); }
+.stripe-icon{
+  width:56px; height:56px; border-radius:50%; background:var(--green-900);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.stripe-icon svg{ width:26px; height:26px; stroke:var(--gold); }
+.stripe-body h3{ font-family:'Work Sans',sans-serif; font-weight:700; font-size:20px; color:var(--green-900); margin-bottom:4px; }
+.stripe-body p{ font-size:15px; color:var(--muted); max-width:52ch; }
+.stripe-arrow{ width:38px; height:38px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .3s var(--ease-out-expo), background-color .3s ease, border-color .3s ease; }
+.stripe-row:hover .stripe-arrow{ background:var(--gold); border-color:var(--gold); transform:translateX(4px); }
+.stripe-row:hover .stripe-arrow svg{ stroke:var(--ink); }
+.stripe-arrow svg{ width:16px; height:16px; stroke:var(--green-900); transition:stroke .3s ease; }
+
+@media (max-width:640px){
+  .stripe-row{ grid-template-columns:48px 1fr; }
+  .stripe-arrow{ display:none; }
+}
+
+.price-band{
+  background:var(--gold); color:var(--ink);
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px;
+  padding:clamp(36px,5vw,54px) clamp(20px,4vw,40px);
+  margin-top:clamp(48px,6vw,72px);
+  border-radius:var(--radius-md);
+}
+.price-band h3{ font-size:clamp(28px,3.4vw,38px); margin-bottom:6px; }
+.price-band p{ font-size:15px; color:oklch(24% 0.04 90 / 0.75); font-weight:600; }
+
+.about{ background:var(--green-900); color:var(--white); }
+.about-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:clamp(40px,6vw,80px); align-items:start; }
+.about-copy p{ color:var(--muted-on-dark); margin-bottom:18px; font-size:16.5px; }
+.about-copy p:first-of-type{ font-size:19px; color:oklch(94% 0.02 145); }
+.stamp-row{ display:flex; flex-wrap:wrap; gap:16px; margin-top:32px; }
+.stamp{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  width:112px; height:112px; border-radius:50%; border:2px dashed oklch(80% 0.15 87 / 0.6);
+  transform:rotate(-4deg); flex-shrink:0;
+  font-size:12px; font-weight:700; color:var(--gold); line-height:1.3; padding:10px;
+}
+.stamp:nth-child(2){ transform:rotate(3deg); }
+.stamp:nth-child(3){ transform:rotate(-2deg); }
+.stamp:nth-child(4){ transform:rotate(5deg); }
+.about-panel{ background:oklch(100% 0 0 / 0.06); border:1px solid var(--line-dark); border-radius:var(--radius-md); padding:36px; }
+.about-panel h4{ font-family:'Work Sans',sans-serif; font-weight:700; color:var(--white); font-size:14px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:18px; }
+.area-list li{ padding:12px 0; border-bottom:1px solid var(--line-dark); font-weight:600; color:var(--white); display:flex; align-items:center; gap:12px; font-size:17px; }
+.area-list li:last-child{ border-bottom:none; }
+.area-list .dot{ width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+@media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
+
+.gallery{ background:var(--paper); }
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  grid-template-rows:repeat(2,minmax(180px,280px));
+  gap:16px;
+}
+.gallery-item{ position:relative; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); }
+.gallery-item:nth-child(1){ grid-column:1 / 4; grid-row:1 / 3; }
+.gallery-item:nth-child(2){ grid-column:4 / 7; grid-row:1 / 2; }
+.gallery-item:nth-child(3){ grid-column:4 / 6; grid-row:2 / 3; }
+.gallery-item:nth-child(4){ grid-column:6 / 7; grid-row:2 / 3; }
+.gallery-item img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease-out-expo); }
+.gallery-item:hover img{ transform:scale(1.07); }
+.gallery-caption{
+  position:absolute; bottom:0; left:0; right:0; padding:18px;
+  background:linear-gradient(0deg, oklch(14% 0.05 150 / 0.85), transparent);
+  color:var(--white); font-weight:600; font-size:14px;
+}
+@media (max-width:760px){
+  .gallery-grid{ grid-template-columns:1fr 1fr; grid-template-rows:repeat(4,200px); }
+  .gallery-item:nth-child(1){ grid-column:1/3; grid-row:1/2; }
+  .gallery-item:nth-child(2){ grid-column:1/3; grid-row:2/3; }
+  .gallery-item:nth-child(3){ grid-column:1/2; grid-row:3/4; }
+  .gallery-item:nth-child(4){ grid-column:2/3; grid-row:3/4; }
+}
+
+.reviews{ background:var(--green-800); color:var(--white); position:relative; overflow:hidden; }
+.reviews-inner{ max-width:800px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.quote-mark{ font-family:'Bebas Neue',sans-serif; font-size:140px; line-height:0.6; color:var(--gold); opacity:0.85; }
+.stars{ font-size:22px; color:var(--gold); letter-spacing:6px; margin-bottom:20px; }
+.reviews h3{ font-family:'Work Sans',sans-serif; font-weight:600; font-size:clamp(22px,2.8vw,28px); line-height:1.5; color:var(--white); margin-bottom:28px; text-transform:none; }
+.reviews p.byline{ color:var(--muted-on-dark); font-weight:600; margin-bottom:34px; }
+
+.contact{ background:var(--paper); }
+.contact-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:32px; align-items:stretch; }
+.contact-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md); padding:40px; }
+.contact-card h3{ font-family:'Work Sans',sans-serif; font-weight:700; color:var(--green-900); font-size:14px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:26px; }
+.contact-row{ display:flex; align-items:flex-start; gap:16px; margin-bottom:24px; }
+.contact-row .ico{ width:42px; height:42px; border-radius:50%; background:var(--green-900); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.contact-row .ico svg{ width:19px; height:19px; stroke:var(--gold); }
+.contact-row strong{ display:block; font-size:13px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:2px; }
+.contact-row span, .contact-row a{ font-weight:700; font-size:16.5px; color:var(--ink); }
+.map-frame{ border-radius:var(--radius-md); overflow:hidden; min-height:340px; border:1px solid var(--line); filter:grayscale(0.3) contrast(1.05); }
+.map-frame iframe{ width:100%; height:100%; min-height:340px; border:none; display:block; }
+
+@media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
+
+.quote{ background:var(--green-900); color:var(--white); }
+.steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line-dark); border-radius:var(--radius-md); overflow:hidden; margin-bottom:clamp(48px,6vw,72px); }
+.step-card{ background:var(--green-800); padding:36px 28px; }
+.step-num{ font-family:'Bebas Neue',sans-serif; font-size:44px; color:var(--gold); line-height:1; margin-bottom:14px; }
+.step-card h4{ font-family:'Work Sans',sans-serif; font-weight:700; color:var(--white); margin-bottom:8px; font-size:16.5px; text-transform:none; }
+.step-card p{ font-size:14.5px; color:var(--muted-on-dark); }
+@media (max-width:760px){ .steps{ grid-template-columns:1fr; } }
+
+.ticket{
+  background:var(--paper); color:var(--ink); border-radius:var(--radius-md);
+  max-width:820px; margin:0 auto 48px; position:relative;
+  box-shadow:var(--shadow-md);
+}
+.ticket-perf{
+  height:0; border-top:2px dashed oklch(40% 0.03 150 / 0.3);
+  margin:0 32px; position:relative; top:1px;
+}
+.ticket-head{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:28px 40px 22px;
+}
+.ticket-head h3{ font-family:'Work Sans',sans-serif; font-weight:700; color:var(--green-900); font-size:22px; }
+.ticket-tag{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  width:76px; height:76px; border-radius:50%; border:2px solid var(--green-900); color:var(--green-900);
+  font-family:'Bebas Neue',sans-serif; font-size:15px; line-height:1.1; text-align:center; transform:rotate(-6deg); flex-shrink:0;
+}
+.ticket-body{ padding:12px 40px 40px; }
+.ticket-body > p{ color:var(--muted); font-size:15px; margin-bottom:26px; }
+.form-status{ border-radius:var(--radius-sm); padding:13px 18px; font-weight:600; font-size:14.5px; margin-bottom:22px; display:none; }
+.form-status.is-shown{ display:block; }
+.form-status-success{ background:oklch(90% 0.06 150); color:var(--green-900); border:1px solid oklch(60% 0.1 150 / 0.4); }
+.form-status-error{ background:oklch(92% 0.05 25); color:oklch(38% 0.12 25); border:1px solid oklch(60% 0.12 25 / 0.4); }
+.form-status-missing{ background:oklch(92% 0.08 85); color:oklch(40% 0.1 70); border:1px solid oklch(70% 0.12 80 / 0.4); }
+
+.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.form-field{ display:flex; flex-direction:column; }
+.form-field-full{ grid-column:1 / -1; }
+.form-field label{ font-weight:700; font-size:12.5px; letter-spacing:0.04em; text-transform:uppercase; color:var(--green-800); margin-bottom:8px; }
+.form-field input, .form-field select, .form-field textarea{
+  width:100%; padding:13px 15px; border:1px solid oklch(40% 0.03 150 / 0.28); border-radius:var(--radius-sm);
+  font-family:'Work Sans',sans-serif; font-size:15px; color:var(--ink); background:var(--white);
+  outline:none; transition:border-color .2s ease, box-shadow .2s ease;
+}
+.form-field input::placeholder, .form-field textarea::placeholder{ color:var(--muted); opacity:1; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus{
+  border-color:var(--green-600); box-shadow:0 0 0 4px oklch(55% 0.13 144 / 0.18);
+}
+.form-submit{ margin-top:26px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.form-submit .btn[disabled]{ opacity:0.6; cursor:default; }
+
+@media (max-width:700px){
+  .form-grid{ grid-template-columns:1fr; }
+  .ticket-head, .ticket-body{ padding-left:26px; padding-right:26px; }
+  .ticket-perf{ margin:0 20px; }
+}
+
+.quote-ctas{ display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+
+footer{ background:var(--ink); color:oklch(90% 0.01 150 / 0.75); padding:72px 0 30px; }
+.footer-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:44px; margin-bottom:52px; }
+.footer-about p{ font-size:14.5px; margin-top:16px; max-width:280px; color:oklch(90% 0.01 150 / 0.55); }
+.footer-grid h4{ color:var(--white); font-size:13px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:20px; }
+.footer-grid li{ margin-bottom:12px; font-size:14.5px; }
+.footer-grid a:hover{ color:var(--gold); }
+.footer-bottom{ border-top:1px solid oklch(100% 0 0 / 0.1); padding-top:26px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-size:13px; color:oklch(90% 0.01 150 / 0.4); }
+@media (max-width:760px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+<header id="site-header">
+  <nav>
+    <a href="#home" class="logo-wrap">
+      <img class="logo-icon" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/c77882b5-bc2d-46dc-9dc9-51d86ee095be.png" alt="Divine Lawn Care Service logo">
+      <span class="logo-word">DIVINE LAWN<span>Care Service &middot; Lansing MI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-phone" href="tel:+15174556911">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (517) 455-6911
+      </a>
+      <a class="btn btn-gold" href="#quote" style="padding:11px 22px; font-size:13.5px;">Free Quote</a>
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </nav>
+</header>
+
+<div class="mobile-panel">
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a class="btn btn-gold" href="#quote">Free Quote</a>
+</div>
+
+<section class="hero" id="home">
+  <img class="hero-bg" src="https://d8j0ntlcm91z4.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/hf_20260706_153647_3d0f300d-2266-4ce4-a671-e4b57ddbf062.png" alt="Landscaper mowing crisp stripes into a lush backyard lawn">
+  <div class="hero-content">
+    <span class="hero-badge reveal">Lansing &bull; East Lansing &bull; Okemos, MI</span>
+    <h1 class="reveal">Sharp lines.<br>Showing up.<br><em>Every time.</em></h1>
+    <p class="reveal">Locally owned, MSU-alumni-run lawn care for homes and businesses across Greater Lansing: mowing, cleanups, and everything in between.</p>
+    <div class="hero-ctas reveal">
+      <a href="#quote" class="btn btn-gold">Schedule a Free Quote</a>
+      <a href="tel:+15174556911" class="btn btn-outline-light">Call (517) 455-6911</a>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<div class="mow-divider" aria-hidden="true"></div>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>What We Do</h2>
+      <p class="section-kicker">From weekly mows to seasonal cleanups, we keep your property looking its best all year round.</p>
+    </div>
+  </div>
+
+  <div class="stripe-row reveal">
+    <div class="stripe-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12h18M3 12a9 9 0 0018 0M3 12a9 9 0 0118 0"/></svg></div>
+    <div class="stripe-body"><h3>Mowing</h3><p>Clean, consistent cuts on a weekly, bi-weekly, or monthly schedule.</p></div>
+    <a href="#quote" class="stripe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="stripe-row reveal">
+    <div class="stripe-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 20h16M4 20V10l8-6 8 6v10"/></svg></div>
+    <div class="stripe-body"><h3>Edging</h3><p>Crisp, defined lines along walkways, driveways, and beds.</p></div>
+    <a href="#quote" class="stripe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="stripe-row reveal">
+    <div class="stripe-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M5 9l7-7 7 7"/></svg></div>
+    <div class="stripe-body"><h3>Weed Whipping</h3><p>Trimming in the tight spots mowers can&apos;t reach.</p></div>
+    <a href="#quote" class="stripe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="stripe-row reveal">
+    <div class="stripe-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22V12M12 12a5 5 0 10-5-5M12 12a5 5 0 105-5"/></svg></div>
+    <div class="stripe-body"><h3>Tree &amp; Shrub Removal</h3><p>Safe removal of overgrown or unwanted trees and shrubs.</p></div>
+    <a href="#quote" class="stripe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="stripe-row reveal">
+    <div class="stripe-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2c-4 4-6 8-6 11a6 6 0 0012 0c0-3-2-7-6-11z"/></svg></div>
+    <div class="stripe-body"><h3>Plant &amp; Tree Pruning</h3><p>Healthy, shapely growth through careful seasonal pruning.</p></div>
+    <a href="#quote" class="stripe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="stripe-row reveal">
+    <div class="stripe-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12l4-8 4 8 4-8 4 8"/></svg></div>
+    <div class="stripe-body"><h3>Fall &amp; Spring Clean-Ups</h3><p>Leaf removal and bed clean-outs to reset your yard each season.</p></div>
+    <a href="#quote" class="stripe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="stripe-row reveal">
+    <div class="stripe-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+    <div class="stripe-body"><h3>Lawn Treatments</h3><p>Feeding and care programs that keep grass green and healthy.</p></div>
+    <a href="#quote" class="stripe-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+
+  <div class="container">
+    <div class="price-band reveal">
+      <div>
+        <h3>Weekly mows starting at $25</h3>
+        <p>Bi-weekly and monthly service plans also available.</p>
+      </div>
+      <a href="#quote" class="btn btn-line">Get Your Quote</a>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-title on-dark reveal">
+      <h2>Locally Owned.<br>MSU Proud.</h2>
+      <p class="section-kicker">Owned and operated by an MSU alumnus, serving neighbors across Greater Lansing.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>Divine Lawn Care Service is owned and operated by Raul Perez, a Michigan State University alumnus, providing residential and commercial lawn care throughout the Greater Lansing area.</p>
+        <p>What started as a passion for sharp, clean lawns has grown into a full-service crew handling mowing, edging, pruning, cleanups, and lawn treatments for neighbors across the region. We show up on time, communicate clearly, and treat every yard like it&apos;s our own.</p>
+        <div class="stamp-row">
+          <div class="stamp">LOCALLY<br>OWNED</div>
+          <div class="stamp">MSU<br>ALUMNI</div>
+          <div class="stamp">24-HR<br>RESPONSE</div>
+          <div class="stamp">SATISFACTION<br>GUARANTEED</div>
+        </div>
+      </div>
+      <div class="about-panel reveal">
+        <h4>Areas We Serve</h4>
+        <ul class="area-list">
+          <li><span class="dot"></span> Lansing, MI</li>
+          <li><span class="dot"></span> East Lansing, MI</li>
+          <li><span class="dot"></span> Okemos, MI</li>
+          <li><span class="dot"></span> Surrounding Greater Lansing Areas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>See the Difference</h2>
+      <p class="section-kicker">A few examples of the kind of results we bring to lawns across Greater Lansing.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/hf_20260705_195955_d4621026-0dff-4194-a734-32da941d6d1e.png" alt="Freshly mowed lawn with crisp green stripes" loading="lazy">
+        <div class="gallery-caption">Striped Mowing Finish</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/hf_20260705_195957_fcccb276-4770-42cf-b4f1-601f3a163c54.png" alt="Close up of precision edging along a sidewalk" loading="lazy">
+        <div class="gallery-caption">Precision Edging</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/hf_20260705_201608_3486812b-9d66-4c66-a910-745ea62dd029.png" alt="Neatly trimmed garden shrubs with blooming flowers" loading="lazy">
+        <div class="gallery-caption">Shrub &amp; Garden Pruning</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/hf_20260705_195959_66796964-b493-4a4c-850e-5812ce4b592c.png" alt="Before and after lawn transformation" loading="lazy">
+        <div class="gallery-caption">Before &amp; After</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reviews-inner reveal">
+      <div class="quote-mark">&ldquo;</div>
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <h3>They showed up exactly when they said they would, and our lawn hasn&apos;t looked this good since we moved in. Straight lines every single time.</h3>
+      <p class="byline">&mdash; A Lansing homeowner, via Facebook</p>
+      <a href="https://www.facebook.com/467992446388375" target="_blank" rel="noopener" class="btn btn-gold">Read &amp; Leave a Review on Facebook</a>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Get In Touch</h2>
+      <p class="section-kicker">Reach out any way that&apos;s easiest. We respond fast.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <h3>Contact Info</h3>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><strong>Phone</strong><a href="tel:+15174556911">(517) 455-6911</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <div><strong>Email</strong><a href="mailto:divinelawncareservice@gmail.com">divinelawncareservice@gmail.com</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div><strong>Hours</strong><span>8:00 AM – 8:00 PM, Every Day</span></div>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg></div>
+          <div><strong>Facebook</strong><a href="https://www.facebook.com/467992446388375" target="_blank" rel="noopener">@divinelawncareservice</a></div>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <iframe src="https://www.google.com/maps?q=Lansing,MI&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Divine Lawn Care Service area map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section quote" id="quote">
+  <div class="container">
+    <div class="section-title on-dark reveal">
+      <h2>Getting Your Free<br>Quote Is Easy</h2>
+      <p class="section-kicker">Here&apos;s what happens when you reach out.</p>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>We Call You Back</h4>
+        <p>You&apos;ll hear from one of our service professionals within 24 hours.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>We Talk It Through</h4>
+        <p>We&apos;ll discuss your lawn care needs and set up an in-person quote if needed.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>We Get You Scheduled</h4>
+        <p>Once you&apos;re ready, we lock in your service and take care of the rest.</p>
+      </div>
+    </div>
+
+    <div class="ticket reveal">
+      <div class="ticket-head">
+        <h3>Request Your Free Quote</h3>
+        <div class="ticket-tag">FREE<br>QUOTE</div>
+      </div>
+      <div class="ticket-perf"></div>
+      <div class="ticket-body">
+        <p>Fill this out and we&apos;ll call you back within 24 hours. No account needed.</p>
+
+        <div id="formStatus"></div>
+
+        <form id="quoteForm">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="q-name">Name *</label>
+              <input id="q-name" name="name" required maxlength="200" placeholder="Your name">
+            </div>
+            <div class="form-field">
+              <label for="q-phone">Phone *</label>
+              <input id="q-phone" name="phone" type="tel" required maxlength="30" placeholder="(517) 555-0123">
+            </div>
+            <div class="form-field">
+              <label for="q-email">Email</label>
+              <input id="q-email" name="email" type="email" maxlength="320" placeholder="you@example.com">
+            </div>
+            <div class="form-field">
+              <label for="q-service">Service Needed</label>
+              <select id="q-service" name="service">
+                <option value="">Select a service…</option>
+                <option>Mowing</option>
+                <option>Edging</option>
+                <option>Weed Whipping</option>
+                <option>Tree &amp; Shrub Removal</option>
+                <option>Plant &amp; Tree Pruning</option>
+                <option>Fall &amp; Spring Clean-Ups</option>
+                <option>Lawn Treatments</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-field form-field-full">
+              <label for="q-address">Property Address</label>
+              <input id="q-address" name="address" maxlength="400" placeholder="Street address, city (Lansing, East Lansing, Okemos…)">
+            </div>
+            <div class="form-field form-field-full">
+              <label for="q-message">Anything else we should know?</label>
+              <textarea id="q-message" name="message" rows="4" maxlength="5000" placeholder="Yard size, gate access, how often you'd like service…"></textarea>
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-line" id="quoteSubmitBtn">Request My Free Quote</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="quote-ctas reveal">
+      <a href="tel:+15174556911" class="btn btn-gold">Call (517) 455-6911</a>
+      <a href="mailto:divinelawncareservice@gmail.com?subject=Quote%20Request" class="btn btn-outline-light">Email Us</a>
+      <a href="https://www.facebook.com/467992446388375" target="_blank" rel="noopener" class="btn btn-outline-light">Message on Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo-wrap">
+          <img class="logo-icon" style="width:52px;height:52px;" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3FdzYgmo0qvTQJN8FfzUEpsu1zB/c77882b5-bc2d-46dc-9dc9-51d86ee095be.png" alt="Divine Lawn Care Service logo">
+          <span class="logo-word" style="color:var(--white);">DIVINE LAWN<span style="color:oklch(90% 0.01 150 / 0.5);">Care Service</span></span>
+        </div>
+        <p>Locally owned lawn care serving Lansing, East Lansing, Okemos, and the surrounding Greater Lansing area.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#quote">Schedule a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15174556911">(517) 455-6911</a></li>
+          <li><a href="mailto:divinelawncareservice@gmail.com">divinelawncareservice@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/467992446388375" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Divine Lawn Care Service. All Rights Reserved.</span>
+      <span>Lansing &bull; East Lansing &bull; Okemos, MI</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  (function(){
+    var header = document.getElementById('site-header');
+    var onScroll = function(){
+      header.classList.toggle('is-scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    var navToggle = document.getElementById('nav-toggle');
+    var panelLinks = document.querySelectorAll('.mobile-panel a');
+    var closeMenu = function(){ navToggle.checked = false; };
+    panelLinks.forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealEls = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold:0.15, rootMargin:'0px 0px -60px 0px' });
+      revealEls.forEach(function(el){ io.observe(el); });
+    }
+
+    var SUPABASE_URL = 'https://uitdqhmbmqyqayjocfuv.supabase.co';
+    var SUPABASE_KEY = 'sb_publishable_OnmYzpIjLnVMW28j_xy_Nw_GjsBtWD7';
+    var client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    var form = document.getElementById('quoteForm');
+    var statusBox = document.getElementById('formStatus');
+    var submitBtn = document.getElementById('quoteSubmitBtn');
+
+    function showStatus(kind, message){
+      statusBox.innerHTML = '';
+      var div = document.createElement('div');
+      div.className = 'form-status is-shown form-status-' + kind;
+      div.textContent = message;
+      statusBox.appendChild(div);
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = form.name.value.trim();
+      var phone = form.phone.value.trim();
+
+      if (!name || !phone) {
+        showStatus('missing', 'Please include at least your name and phone number.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      client.from('quote_requests').insert({
+        name: name,
+        phone: phone,
+        email: form.email.value.trim() || null,
+        address: form.address.value.trim() || null,
+        service: form.service.value.trim() || null,
+        message: form.message.value.trim() || null
+      }).then(function(result){
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request My Free Quote';
+        if (result.error) {
+          console.error('Quote request failed:', result.error.message);
+          showStatus('error', 'Something went wrong sending your request. Please try again, or call us at (517) 455-6911.');
+          return;
+        }
+        showStatus('success', 'Thanks! Your quote request is in — we’ll call you back within 24 hours.');
+        form.reset();
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
